@@ -8,5 +8,9 @@
   "dependencies": {
     "react": "^15.0.2",
     "react-native": "^0.26.2"
+  },
+  "devDependencies": {
+    "reflux": "^0.4.1",
+    "underscore": "^1.8.3"
   }
 }
