@@ -5,6 +5,7 @@ var React = require('react');
 
 var BadgeList = require('./badgeList');
 var BadgeCreate = require('./badgeCreate');
+var BadgeEditor = require('./badgeEditor')
 
 var {
   StyleSheet,
@@ -30,6 +31,18 @@ var Home = React.createClass({
     })
   },
 
+  _handleBadgeEditor: function() {
+    this.props.navigator.push({
+      title: "Badge Editor",
+      component: BadgeEditor,
+      rightButtonTitle: "Share",
+      onRightButtonPress: () => this.props.navigator.push({
+        title: "Share This Shit",
+        component: BadgeEditor
+      })
+    })
+  },
+
   render: function() {
     return (
       <View style={styles.container}>
@@ -40,6 +53,9 @@ var Home = React.createClass({
           </TouchableHighlight>
           <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this._handleCreateBadge}>
             <Text style={styles.buttonText}>Create Badge</Text>
+          </TouchableHighlight>
+          <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this._handleBadgeEditor}>
+            <Text style={styles.buttonText}>Badge Editor</Text>
           </TouchableHighlight>
         </View>
         <View style={styles.footer}><Text>Footer Here</Text></View>

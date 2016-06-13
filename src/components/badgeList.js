@@ -36,6 +36,7 @@ var BadgeList = React.createClass({
     return (
       <ListView
         dataSource = {this.state.badgeDataSource}
+        enableEmptySections={true}
         renderRow = {(rowData) => <BadgeItem badge={rowData} />}
       />
     );

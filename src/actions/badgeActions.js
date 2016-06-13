@@ -5,5 +5,7 @@ var Reflux = require('reflux');
 module.exports = Reflux.createActions([
     'badgeCreate',
     'badgeUpdate',
-    'badgeDelete'
+    'badgeDelete',
+    'badgeShape',
+    'badgeStroke'
 ]);
