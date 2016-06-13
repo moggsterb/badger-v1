@@ -10,6 +10,24 @@ var {
   Component
 } = ReactNative;
 
+import Svg,{
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Use,
+    Defs,
+    Stop
+} from 'react-native-svg';
+
+
 var Reflux = require('reflux');
 var badgeStore = require('../stores/badgeStore');
 
@@ -49,7 +67,30 @@ var Badge = React.createClass({
   },
 	render() {
     return (
+
       <View style={frame.badge}>
+      <Svg
+                height="100"
+                width="100"
+            >
+                <Circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="blue"
+                    strokeWidth="2.5"
+                    fill="green"
+                />
+                <Rect
+                    x="15"
+                    y="15"
+                    width="70"
+                    height="70"
+                    stroke="red"
+                    strokeWidth="2"
+                    fill="yellow"
+                />
+            </Svg>
 				<Text>Badge to go Here</Text>
         <Text>{this.state.shape}</Text>
         <Text>{this.state.stroke}</Text>
