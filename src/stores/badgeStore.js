@@ -2,6 +2,8 @@
 
 var Reflux = require('reflux');
 
+var Badge = require('./../data/badge');
+
 var _ = require('underscore');
 
 module.exports = Reflux.createStore({
@@ -10,17 +12,17 @@ module.exports = Reflux.createStore({
   init: function() {
     console.log("Store INIT");
     console.log("Load any Badges");
-    this._currentShape = "No Shape";
-    this._currentStroke = "No Stroke";
+    this._currentBadge = new Badge("Shape 1", "Style 1")
   },
   onBadgeShape: function(shape) {
     console.log("You want me to set the shape");
     console.log(shape);
-    this._currentShape = shape;
+    this._currentBadge.shape = shape;
     this.trigger(null);
   },
-  onBadgeStroke: function(stroke) {
-    this._currentStroke = stroke;
+  onBadgeStyle: function(style) {
+    console.log("Style Pressed !!!");
+    this._currentBadge.style = style;
     this.trigger(null);
   },
   onBadgeCreate: function(text) {

@@ -7,53 +7,49 @@ var {
   View,
   Text,
   Image,
-  Component
+  Component,
+  WebView
 } = ReactNative;
 
-import Svg,{
-    Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Use,
-    Defs,
-    Stop
-} from 'react-native-svg';
 
 
 var Reflux = require('reflux');
 var badgeStore = require('../stores/badgeStore');
 
 import frame from './../styles/frame';
-
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-		height: 400,
-    justifyContent: 'center',
-    alignItems: 'stretch',
-		backgroundColor: '#600'
-  },
-  logo: {
-    height: 200,
-    width: 200,
-  }
-});
+var BGWASH = 'rgba(255,255,255,0.8)';
+const HTML_start = `
+<!DOCTYPE html>\n
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        background: #600000;
+      }
+      svg {
+        width: 320px;
+        height: 320px;
+        margin: 0 auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 400 400" enable-background="new 0 0 300 300" xml:space="preserve">
+`;
+const HTML_finish = `
+  </svg>
+  </body>
+</html>
+`;
 
 var Badge = React.createClass({
   mixins: [Reflux.listenTo(badgeStore, 'updateStates')],
   getInitialState: function() {
     return {
-      shape: badgeStore._currentShape,
-      stroke: badgeStore._currentStroke,
+      currentBadge: badgeStore._currentBadge,
     };
   },
   updateStates: function(err) {
@@ -61,44 +57,19 @@ var Badge = React.createClass({
       return;
     }
     this.setState({
-      shape: badgeStore._currentShape,
-      stroke: badgeStore._currentStroke
+      currentBadge: badgeStore._currentBadge,
     });
   },
 	render() {
     return (
-
-      <View style={frame.badge}>
-      <Svg
-                height="100"
-                width="100"
-            >
-                <Circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    stroke="blue"
-                    strokeWidth="2.5"
-                    fill="green"
-                />
-                <Rect
-                    x="15"
-                    y="15"
-                    width="70"
-                    height="70"
-                    stroke="red"
-                    strokeWidth="2"
-                    fill="yellow"
-                />
-            </Svg>
-				<Text>Badge to go Here</Text>
-        <Text>{this.state.shape}</Text>
-        <Text>{this.state.stroke}</Text>
-        <Image
-          style={styles.logo}
-          source={require('./../../badge.png')}
+      <View style={frame.badgeWrapper}>
+        <WebView
+          style={frame.badge}
+          source={{html: HTML_start.concat(this.state.currentBadge.shapeData()).concat(HTML_finish)}}
+          scalesPageToFit={false}
+          automaticallyAdjustContentInsets={false}
+          scrollEnabled={false}
         />
-
       </View>
     );
   }

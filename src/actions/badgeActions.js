@@ -7,5 +7,5 @@ module.exports = Reflux.createActions([
     'badgeUpdate',
     'badgeDelete',
     'badgeShape',
-    'badgeStroke'
+    'badgeStyle'
 ]);

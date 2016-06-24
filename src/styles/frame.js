@@ -10,11 +10,16 @@ var frame = StyleSheet.create({
 		right: 0,
 		backgroundColor: '#800000'
   },
-  badge: {
+  badgeWrapper: {
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
-		backgroundColor: '#600000'
+		backgroundColor: '#600000',
+    paddingTop: 70,
+  },
+  badge: {
+    height: 320,
+    width: 320,
   },
   dash: {
 		padding: 10,
