@@ -48,13 +48,13 @@ var Home = React.createClass({
       <View style={styles.container}>
         <View style={styles.masthead}><Text>LOGO</Text></View>
         <View style={styles.menu}>
-          <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this._handleListBadges}>
+          <TouchableHighlight style={styles.button} underlayColor='#555555' onPress={this._handleListBadges}>
             <Text style={styles.buttonText}>My Badges</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this._handleCreateBadge}>
+          <TouchableHighlight style={styles.button} underlayColor='#555555' onPress={this._handleCreateBadge}>
             <Text style={styles.buttonText}>Create Badge</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this._handleBadgeEditor}>
+          <TouchableHighlight style={styles.button} underlayColor='#555555' onPress={this._handleBadgeEditor}>
             <Text style={styles.buttonText}>Badge Editor</Text>
           </TouchableHighlight>
         </View>
@@ -84,8 +84,8 @@ var styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    backgroundColor: '#48bbec',
-    borderColor: '#48bbec',
+    backgroundColor: '#555555',
+    borderColor: '#888888',
     borderWidth: 1,
     borderRadius: 8,
     alignSelf: 'stretch',

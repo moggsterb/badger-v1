@@ -14,7 +14,7 @@ var {
 var mainView = React.createClass({
   render: function() {
     return (
-      <NavigatorIOS barTintColor='#48bbec' titleTextColor='#ffffff' style={styles.navigator} initialRoute={{ title: 'Badger', component: Home}} />
+      <NavigatorIOS barTintColor='#333333' titleTextColor='#ffffff' style={styles.navigator} initialRoute={{ title: 'Badger', component: Home}} />
     );
   }
 });
