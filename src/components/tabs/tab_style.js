@@ -1,5 +1,4 @@
 'use strict';
-var Badge = require('./../badge');
 var DashIcon = require('./dash_icon');
 var React = require('react');
 var ReactNative = require('react-native');
@@ -19,7 +18,6 @@ import frame from './../../styles/frame';
 var TabStyle = React.createClass({
 
 	_handlePress(style) {
-		// this.props.onPress(data)
     console.log("Style Pressed");
     badgeActions.badgeStyle(style);
 	},
@@ -27,7 +25,6 @@ var TabStyle = React.createClass({
   render() {
     return (
 			<View style={frame.container}>
-				<Badge />
 	      <View style={frame.dash}>
 					<View style={frame.dashRow}>
 						<DashIcon label="Style 1" onPress={this._handlePress}/>

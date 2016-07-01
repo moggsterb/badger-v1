@@ -3,18 +3,13 @@ import { StyleSheet } from 'react-native';
 var frame = StyleSheet.create({
   container: {
     flex: 1,
-		position: 'absolute',
-		top: 0,
-		bottom: 50,
-		left: 0,
-		right: 0,
-		backgroundColor: '#800000'
+		backgroundColor: '#444'
   },
   badgeWrapper: {
-    flex: 3,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-		backgroundColor: '#600000',
+		backgroundColor: 'transparent',
     paddingTop: 70,
   },
   badge: {
@@ -23,7 +18,10 @@ var frame = StyleSheet.create({
   },
   dash: {
 		padding: 10,
-		backgroundColor: '#400000'
+		backgroundColor: '#333',
+    position: 'absolute',
+    bottom: 50,
+    width: 320
   },
 	dashRow: {
 		flex: 1,

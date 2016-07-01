@@ -26,7 +26,7 @@ const HTML_start = `
       body {
         margin: 0;
         padding: 0;
-        background: #600000;
+        background: #444;
       }
       svg {
         width: 320px;
@@ -65,7 +65,7 @@ var Badge = React.createClass({
       <View style={frame.badgeWrapper}>
         <WebView
           style={frame.badge}
-          source={{html: HTML_start.concat(this.state.currentBadge.shapeData()).concat(HTML_finish)}}
+          source={{html: HTML_start.concat(this.state.currentBadge.buildShape()).concat(HTML_finish)}}
           scalesPageToFit={false}
           automaticallyAdjustContentInsets={false}
           scrollEnabled={false}
