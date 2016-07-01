@@ -35,9 +35,9 @@ var TabShape = React.createClass({
 					</View>
 					<View style={frame.dashRow}>
 						<DashIcon label="Shape 5" onPress={this._handlePress}/>
-						<DashIcon label="Shape 6" onPress={this._handlePress}/>
-						<DashIcon label="Shape 7" onPress={this._handlePress}/>
-						<DashIcon label="Shape 8" onPress={this._handlePress}/>
+						<DashIcon label="Shape 1" onPress={this._handlePress}/>
+						<DashIcon label="Shape 2" onPress={this._handlePress}/>
+						<DashIcon label="Shape 3" onPress={this._handlePress}/>
 					</View>
 	      </View>
 			</View>

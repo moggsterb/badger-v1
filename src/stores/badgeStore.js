@@ -12,7 +12,7 @@ module.exports = Reflux.createStore({
   init: function() {
     console.log("Store INIT");
     console.log("Load any Badges");
-    this._currentBadge = new Badge("1", "1", "1", "1")
+    this._currentBadge = new Badge(0, 0, 0, 0, 0)
   },
   onBadgeShape: function(shape) {
     console.log("You want me to set the shape");
@@ -33,13 +33,12 @@ module.exports = Reflux.createStore({
   onBadgeTheme: function(theme) {
     console.log("Theme Pressed !!!");
     this._currentBadge.theme = theme[6]-1;
-    this._currentBadge.shuffle = 0;
     this.trigger(null);
   },
   onBadgeShuffleTheme: function() {
     console.log("Shuffle Pressed !!!");
     this._currentBadge.shuffle++;
-    if (this._currentBadge.shuffle == 5) {
+    if (this._currentBadge.shuffle > 4) {
       this._currentBadge.shuffle = 0;
     }
     console.log(this._currentBadge.shuffle);

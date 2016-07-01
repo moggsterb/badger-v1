@@ -30,13 +30,13 @@ var TabIcon = React.createClass({
 						<DashIcon label="Icon 1" onPress={this._handlePress}/>
 						<DashIcon label="Icon 2" onPress={this._handlePress}/>
 						<DashIcon label="Icon 3" onPress={this._handlePress}/>
-						<DashIcon label="Icon 4" onPress={this._handlePress}/>
+						<DashIcon label="Icon 1" onPress={this._handlePress}/>
 					</View>
 					<View style={frame.dashRow}>
-						<DashIcon label="Icon 5" onPress={this._handlePress}/>
-						<DashIcon label="Icon 6" onPress={this._handlePress}/>
-						<DashIcon label="Icon 7" onPress={this._handlePress}/>
-						<DashIcon label="Icon 8" onPress={this._handlePress}/>
+						<DashIcon label="Icon 2" onPress={this._handlePress}/>
+						<DashIcon label="Icon 3" onPress={this._handlePress}/>
+						<DashIcon label="Icon 1" onPress={this._handlePress}/>
+						<DashIcon label="Icon 2" onPress={this._handlePress}/>
 					</View>
 	      </View>
 			</View>

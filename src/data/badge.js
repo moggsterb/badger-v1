@@ -3,12 +3,12 @@
 
 class Badge {
 
-  constructor(shape,style,icon,theme) {
+  constructor(shape,style,icon,theme,shuffle) {
     this.shape = shape;
     this.style = style;
     this.icon = icon;
     this.theme = theme;
-    this.shuffle = 0;
+    this.shuffle = shuffle;
     this.id = (+new Date() + Math.floor(Math.random() * 9999999)).toString(36);
   }
 
@@ -21,19 +21,17 @@ class Badge {
   }
 
   themeData() {
-    return MOCK_THEMES.default[this.theme].colors;
+    return MOCK_THEMES.default[this.theme].colors.slice(0);;
   }
 
   buildShape() {
     var data = this.shapeData().concat(this.iconData());
-    var theme = this.themeData();
+    var th = this.themeData();
     for (i = 0; i < this.shuffle; i++)
     {
-      theme.push(theme.shift());
+      th.push(th.shift());
     };
-    console.log(theme);
-    var svg = data.replace(/#000000/g,theme[0]).replace(/#FFFFFF/g,theme[1]).replace(/#FF0000/g,theme[2]).replace(/#00FF00/g,theme[3]).replace(/#0000FF/g,theme[4]);
-
+    var svg = data.replace(/#000000/g,th[0]).replace(/#FFFFFF/g,th[1]).replace(/#FF0000/g,th[2]).replace(/#00FF00/g,th[3]).replace(/#0000FF/g,th[4]);
     return svg;
   }
 }
