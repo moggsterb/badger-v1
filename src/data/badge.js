@@ -3,12 +3,14 @@
 
 class Badge {
 
-  constructor(shape,style,icon,theme,shuffle) {
+  constructor(shape,style,icon,theme,shuffle,textA,textB) {
     this.shape = shape;
     this.style = style;
     this.icon = icon;
     this.theme = theme;
     this.shuffle = shuffle;
+    this.TextA = textA;
+    this.TextB = textB;
     this.id = (+new Date() + Math.floor(Math.random() * 9999999)).toString(36);
   }
 
@@ -178,7 +180,11 @@ const MOCK_SHAPES = {
     {
       icon: `<polygon fill='#FFFFFF' stroke='#000000' points='200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295' />`,
       variants: [
-        { data: `	<polygon fill="#FFFFFF" stroke="#000000" stroke-width="1" points="200,15 244.902,153.197 390.211,153.197 272.654,238.606 317.557,376.804 200,291.394 82.443,376.804 127.346,238.606 9.789,153.197 155.097,153.197 	"/>`},
+        { data: `
+        <polygon fill="#FFFFFF" stroke="#000000" stroke-width="1" points="200,15 244.902,153.197 390.211,153.197 272.654,238.606 317.557,376.804 200,291.394 82.443,376.804 127.346,238.606 9.789,153.197 155.097,153.197 	"/>
+        <text x="50%" y="90" alignment-baseline="middle" text-anchor="middle" font-family="Verdana" font-size="36" fill="#FF0000">Now Then</text>
+        <text x="50%" y="350" alignment-baseline="middle" text-anchor="middle" font-family="Verdana" font-size="36" fill="#FF0000">Some more Text</text>
+        `},
         { data: `	<polygon fill="#FFFFFF" stroke="#000000" stroke-width="2" points="200,15 244.902,153.197 390.211,153.197 272.654,238.606 317.557,376.804 200,291.394 82.443,376.804 127.346,238.606 9.789,153.197 155.097,153.197 	"/>`},
         { data: `	<polygon fill="#FFFFFF" stroke="#000000" stroke-width="3" points="200,15 244.902,153.197 390.211,153.197 272.654,238.606 317.557,376.804 200,291.394 82.443,376.804 127.346,238.606 9.789,153.197 155.097,153.197 	"/>`},
         { data: `	<polygon fill="#FFFFFF" stroke="#000000" stroke-width="4" points="200,15 244.902,153.197 390.211,153.197 272.654,238.606 317.557,376.804 200,291.394 82.443,376.804 127.346,238.606 9.789,153.197 155.097,153.197 	"/>`},
@@ -191,8 +197,24 @@ const MOCK_SHAPES = {
     {
       icon: `<polygon fill="#FFFFFF" stroke="#000000" stroke-width="1" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>`,
       variants: [
-        { data: `<polygon fill="#FFFFFF" stroke="#000000" stroke-width="1" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>`},
-        { data: `<polygon fill="#FFFFFF" stroke="#000000" stroke-width="2" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>`},
+        { data: `<polygon fill="#FFFFFF" stroke="#000000" stroke-width="1" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>
+        <path fill="none" d="M70,215c0-71.797,58.203-130,130-130c71.798,0,130,58.203,130,130"/>
+      	<text transform="matrix(0.8966 -0.4428 0.4428 0.8966 125.6426 106.7007)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="46.8">M</tspan><tspan x="37.687" y="0.741" font-family="'MyriadPro-Regular'" font-size="46.8" rotate="14.046">o</tspan><tspan x="62.701" y="7.016" font-family="'MyriadPro-Regular'" font-size="46.8" rotate="25.354">n</tspan><tspan x="86.135" y="18.328" font-family="'MyriadPro-Regular'" font-size="46.8" rotate="35.871">k</tspan><tspan x="104.005" y="31.174" font-family="'MyriadPro-Regular'" font-size="46.8" rotate="45.941">e</tspan><tspan x="120.291" y="48.101" font-family="'MyriadPro-Regular'" font-size="46.8" rotate="56.009">y</tspan></text>
+
+        `},
+        { data: `
+          <defs>
+            <path id="MyPath"
+                  d="M70,215c0-71.797,58.203-130,130-130c71.798,0,130,58.203,130,130" />
+          </defs>
+          <polygon fill="#FFFFFF" stroke="#000000" stroke-width="2" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>
+          <use xlink:href="#MyPath" fill="none" stroke="none"  />
+
+ <text font-family="Verdana" font-size="42.5" style="text-anchor: middle">
+  <textPath xlink:href="#MyPath" startOffset="50%">
+    Text on a Path
+  </textPath>
+</text>`},
         { data: `<polygon fill="#FFFFFF" stroke="#000000" stroke-width="3" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>`},
         { data: `<polygon fill="#FFFFFF" stroke="#000000" stroke-width="4" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>`},
         { data: `<polygon fill="#FFFFFF" stroke="#000000" stroke-width="5" points="200,390 35.456,295 35.456,105.001 200,10.001 364.545,105.001 364.545,295 	"/>`},

@@ -12,27 +12,27 @@ module.exports = Reflux.createStore({
   init: function() {
     console.log("Store INIT");
     console.log("Load any Badges");
-    this._currentBadge = new Badge(0, 0, 0, 0, 0)
+    this._currentBadge = new Badge(0, 0, 0, 0, 0, "Some Text", "More Text")
   },
   onBadgeShape: function(shape) {
     console.log("You want me to set the shape");
     console.log(shape);
-    this._currentBadge.shape = shape[6]-1;
+    this._currentBadge.shape = shape[6];
     this.trigger(null);
   },
   onBadgeStyle: function(style) {
     console.log("Style Pressed !!!");
-    this._currentBadge.style = style[6]-1;
+    this._currentBadge.style = style[6];
     this.trigger(null);
   },
   onBadgeIcon: function(icon) {
     console.log("Icon Pressed !!!");
-    this._currentBadge.icon = icon[5]-1;
+    this._currentBadge.icon = icon[5];
     this.trigger(null);
   },
   onBadgeTheme: function(theme) {
     console.log("Theme Pressed !!!");
-    this._currentBadge.theme = theme[6]-1;
+    this._currentBadge.theme = theme[6];
     this.trigger(null);
   },
   onBadgeShuffleTheme: function() {

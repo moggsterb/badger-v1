@@ -9,30 +9,24 @@ var {
   Component
 } = ReactNative;
 
+import icons from './../../styles/icons';
+
 var styles = StyleSheet.create({
-	button: {
-	  height: 36,
-	  flex: 1,
-	  flexDirection: 'row',
-	  backgroundColor: '#555555',
-	  borderColor: '#888888',
-	  borderWidth: 1,
-	  borderRadius: 8,
-	  margin: 2,
-	  alignSelf: 'center',
-	  justifyContent: 'center'
-	},
-	buttonText: {
-		fontSize: 10,
-		color: 'white',
-		alignSelf: 'center'
-	},
+
 });
 
 var DashIcon = React.createClass({
 
+
 	propTypes: {
-    label: React.PropTypes.string
+    label: React.PropTypes.string,
+    active: React.PropTypes.bool
+  },
+
+  getDefaultProps: function() {
+    return {
+      active: 0,
+    };
   },
 
 	_handlePress(data) {
@@ -41,8 +35,8 @@ var DashIcon = React.createClass({
 
 	render() {
     return (
-			<TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this._handlePress.bind(this, this.props.label)}>
-				<Text style={styles.buttonText}>{this.props.label}</Text>
+			<TouchableHighlight style={[icons.button, this.props.active && icons.buttonActive]} underlayColor='#444' onPress={this._handlePress.bind(this, this.props.label)}>
+				<Text style={[icons.buttonText, this.props.active && icons.buttonTextActive]}>{this.props.label}</Text>
 			</TouchableHighlight>
     );
   }

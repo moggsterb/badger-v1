@@ -10,12 +10,28 @@ var {
   Component
 } = ReactNative;
 
+import frame from './../../styles/frame';
+
+var Reflux = require('reflux');
 var badgeActions = require('../../actions/badgeActions');
 var badgeStore = require('../../stores/badgeStore');
 
-import frame from './../../styles/frame';
-
 var TabStyle = React.createClass({
+  mixins: [Reflux.listenTo(badgeStore, 'updateStates')],
+  getInitialState: function() {
+    return {
+      currentBadge: badgeStore._currentBadge,
+    };
+  },
+
+  updateStates: function(err) {
+    if (err) {
+      return;
+    }
+    this.setState({
+      currentBadge: badgeStore._currentBadge,
+    });
+  },
 
 	_handlePress(style) {
     console.log("Style Pressed");
@@ -27,16 +43,16 @@ var TabStyle = React.createClass({
 			<View style={frame.container}>
 	      <View style={frame.dash}>
 					<View style={frame.dashRow}>
-						<DashIcon label="Style 1" onPress={this._handlePress}/>
-						<DashIcon label="Style 2" onPress={this._handlePress}/>
-						<DashIcon label="Style 3" onPress={this._handlePress}/>
-						<DashIcon label="Style 4" onPress={this._handlePress}/>
+						<DashIcon label="Style 0" onPress={this._handlePress} active={this.state.currentBadge.style == 0} />
+						<DashIcon label="Style 1" onPress={this._handlePress} active={this.state.currentBadge.style == 1} />
+						<DashIcon label="Style 2" onPress={this._handlePress} active={this.state.currentBadge.style == 2} />
+						<DashIcon label="Style 3" onPress={this._handlePress} active={this.state.currentBadge.style == 3} />
 					</View>
 					<View style={frame.dashRow}>
-						<DashIcon label="Style 5" onPress={this._handlePress}/>
-						<DashIcon label="Style 6" onPress={this._handlePress}/>
-						<DashIcon label="Style 7" onPress={this._handlePress}/>
-						<DashIcon label="Style 8" onPress={this._handlePress}/>
+						<DashIcon label="Style 4" onPress={this._handlePress} active={this.state.currentBadge.style == 4} />
+						<DashIcon label="Style 5" onPress={this._handlePress} active={this.state.currentBadge.style == 5} />
+						<DashIcon label="Style 6" onPress={this._handlePress} active={this.state.currentBadge.style == 6} />
+						<DashIcon label="Style 7" onPress={this._handlePress} active={this.state.currentBadge.style == 7} />
 					</View>
 	      </View>
 			</View>

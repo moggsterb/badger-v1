@@ -17,6 +17,7 @@ var TabShape = require('./tabs/tab_shape');
 var TabStyle = require('./tabs/tab_style');
 var TabIcon = require('./tabs/tab_icon');
 var TabTheme = require('./tabs/tab_theme');
+var TabText = require('./tabs/tab_text');
 
 var Badge = require('./badge');
 
@@ -83,7 +84,7 @@ var BadgeEditor = React.createClass({
                     selectedTab: 'text',
                 });
           }}>
-          <TabShape/>
+          <TabText/>
         </TabBarIOS.Item>
 
       </TabBarIOS>
