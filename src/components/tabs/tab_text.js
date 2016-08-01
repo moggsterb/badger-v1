@@ -32,7 +32,7 @@ var TabText = React.createClass({
 
   render() {
     return (
-			<View style={frame.container}>
+			<View style={frame.tabContainer}>
 
 	      <View style={frame.dash}>
         <TextInput

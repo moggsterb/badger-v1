@@ -5,7 +5,8 @@ var React = require('react');
 
 var BadgeList = require('./badgeList');
 var BadgeCreate = require('./badgeCreate');
-var BadgeEditor = require('./badgeEditor')
+var BadgeEditor = require('./badgeEditor');
+var Mondrian = require('./mondrian');
 
 var {
   StyleSheet,
@@ -16,6 +17,13 @@ var {
 } = ReactNative;
 
 var Home = React.createClass({
+
+  _handleMondrian: function() {
+    this.props.navigator.push({
+      title: "Mondrian",
+      component: Mondrian
+    })
+  },
 
   _handleListBadges: function() {
     this.props.navigator.push({
@@ -48,6 +56,9 @@ var Home = React.createClass({
       <View style={styles.container}>
         <View style={styles.masthead}><Text>LOGO</Text></View>
         <View style={styles.menu}>
+          <TouchableHighlight style={styles.button} underlayColor='#555555' onPress={this._handleMondrian}>
+            <Text style={styles.buttonText}>Mondrian</Text>
+          </TouchableHighlight>
           <TouchableHighlight style={styles.button} underlayColor='#555555' onPress={this._handleListBadges}>
             <Text style={styles.buttonText}>My Badges</Text>
           </TouchableHighlight>

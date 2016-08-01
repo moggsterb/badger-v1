@@ -45,7 +45,7 @@ var TabIcon = React.createClass({
 
   render() {
     return (
-			<View style={frame.container}>
+			<View style={frame.tabContainer}>
 	      <View style={frame.dash}>
 					<View style={frame.dashRow}>
 						<DashIcon label="Icon 0" onPress={this._handlePress} active={this.state.currentBadge.icon == 0} />
