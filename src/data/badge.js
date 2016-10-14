@@ -16,25 +16,50 @@ class Badge {
   }
 
   shapeData() {
-    // return MOCK_SHAPES.default[this.shape].variants[this.style].data;
-    return MOCK_SHAPES.default[this.shape]
+    return MOCK_SHAPES.default[this.shape];
+  }
+
+  shapeEnabled(index) {
+    return (MOCK_SHAPES.default.length > index);
+  }
+
+  styleEnabled(index) {
+    return (MOCK_SHAPES.default[this.shape].variants.length > index);
   }
 
   iconData() {
     return MOCK_ICONS.default[this.icon].data;
   }
 
+  iconEnabled(index) {
+    return (MOCK_ICONS.default.length > index);
+  }
+
   themeData() {
     return MOCK_THEMES.default[this.theme].colors.slice(0);
   }
 
+  themeEnabled(index) {
+    return (MOCK_THEMES.default.length > index);
+  }
+
   buildShape() {
     // establish structure
+    console.log("BUILDING SHAPE !!!");
     var structure = this.shapeData().structure.slice(0);
     var data = new Array(structure.length);
     var common = this.shapeData().common;
     var variant = this.shapeData().variants[this.style];
-    var th = this.themeData();
+    var th_t = this.themeData()[0].slice(0);
+    var th_c = this.themeData()[1].slice(0);
+    var th_s = this.themeData()[2].slice(0);
+    for (i = 0; i < this.shuffle; i++)
+    {
+      th_t.push(th_t.shift());
+      th_c.push(th_c.shift());
+      th_s.push(th_s.shift());
+    };
+
     var layers = ""
     for (i = 0; i < structure.length; i++) {
       var layer = "";
@@ -50,14 +75,13 @@ class Badge {
       layers = layers.concat(layer)
     };
     // legacy colours (for the original placeholder colours)
-    layers = layers.replace(/#000000/g,th[1][0]).replace(/#FFFFFF/g,th[1][1]).replace(/#FF0000/g,th[1][2]).replace(/#00FF00/g,th[1][3]).replace(/#0000FF/g,th[1][4]);
-
+    layers = layers.replace(/#000000/g,th_c[0]).replace(/#FFFFFF/g,th_c[1]).replace(/#FF0000/g,th_c[2]).replace(/#00FF00/g,th_c[3]).replace(/#0000FF/g,th_c[4]);
     // tones
-    layers = layers.replace(/#83BDB9/g,th[0][0]).replace(/#CB948B/g,th[0][1]).replace(/#DACD9F/g,th[0][2]).replace(/#E9E9E9/g,th[0][3]).replace(/#4F798B/g,th[0][4]);
+    layers = layers.replace(/#83BDB9/g,th_t[0]).replace(/#CB948B/g,th_t[1]).replace(/#DACD9F/g,th_t[2]).replace(/#E9E9E9/g,th_t[3]).replace(/#4F798B/g,th_t[4]);
     // colours
-    layers = layers.replace(/#51A49E/g,th[1][0]).replace(/#B7695C/g,th[1][1]).replace(/#CDBB79/g,th[1][2]).replace(/#E2E2E2/g,th[1][3]).replace(/#06425C/g,th[1][4]);
+    layers = layers.replace(/#51A49E/g,th_c[0]).replace(/#B7695C/g,th_c[1]).replace(/#CDBB79/g,th_c[2]).replace(/#E2E2E2/g,th_c[3]).replace(/#06425C/g,th_c[4]);
     // shades
-    layers = layers.replace(/#39726E/g,th[2][0]).replace(/#804940/g,th[2][1]).replace(/#8F8354/g,th[2][2]).replace(/#9E9E9E/g,th[2][3]).replace(/#042E40/g,th[2][4]);
+    layers = layers.replace(/#39726E/g,th_s[0]).replace(/#804940/g,th_s[1]).replace(/#8F8354/g,th_s[2]).replace(/#9E9E9E/g,th_s[3]).replace(/#042E40/g,th_s[4]);
     return layers;
   }
 }

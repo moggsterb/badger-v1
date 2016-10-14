@@ -48,16 +48,16 @@ var TabTheme = React.createClass({
 
 	      <View style={frame.dash}>
 					<View style={frame.dashRow}>
-						<DashIcon label="Theme 0" onPress={this._handlePress} active={this.state.currentBadge.theme == 0} />
-						<DashIcon label="Theme 1" onPress={this._handlePress} active={this.state.currentBadge.theme == 1} />
-						<DashIcon label="Theme 2" onPress={this._handlePress} active={this.state.currentBadge.theme == 2} />
-						<DashIcon label="Theme 3" onPress={this._handlePress} active={this.state.currentBadge.theme == 3} />
+						<DashIcon label="Theme 0" onPress={this._handlePress} active={this.state.currentBadge.theme == 0} enabled={this.state.currentBadge.themeEnabled(0)} />
+						<DashIcon label="Theme 1" onPress={this._handlePress} active={this.state.currentBadge.theme == 1} enabled={this.state.currentBadge.themeEnabled(1)} />
+						<DashIcon label="Theme 2" onPress={this._handlePress} active={this.state.currentBadge.theme == 2} enabled={this.state.currentBadge.themeEnabled(2)} />
+						<DashIcon label="Theme 3" onPress={this._handlePress} active={this.state.currentBadge.theme == 3} enabled={this.state.currentBadge.themeEnabled(3)} />
 					</View>
 					<View style={frame.dashRow}>
-						<DashIcon label="Theme 4" onPress={this._handlePress} active={this.state.currentBadge.theme == 4} />
-						<DashIcon label="Theme 5" onPress={this._handlePress} active={this.state.currentBadge.theme == 5} />
-						<DashIcon label="Theme 6" onPress={this._handlePress} active={this.state.currentBadge.theme == 6} />
-						<DashIcon label="Shuffle" onPress={this._handlePress} active={false} />
+						<DashIcon label="Theme 4" onPress={this._handlePress} active={this.state.currentBadge.theme == 4} enabled={this.state.currentBadge.themeEnabled(4)} />
+						<DashIcon label="Theme 5" onPress={this._handlePress} active={this.state.currentBadge.theme == 5} enabled={this.state.currentBadge.themeEnabled(5)} />
+						<DashIcon label="Theme 6" onPress={this._handlePress} active={this.state.currentBadge.theme == 6} enabled={this.state.currentBadge.themeEnabled(6)} />
+						<DashIcon label="Shuffle" onPress={this._handlePress} active={false} enabled={true} />
 					</View>
 	      </View>
 			</View>

@@ -25,17 +25,20 @@ var DashIcon = React.createClass({
 
   getDefaultProps: function() {
     return {
-      active: 0,
+      id: 0,
+      active: false,
+      enabled: false,
     };
   },
 
 	_handlePress(data) {
-		this.props.onPress(data)
+    this.props.onPress(data);
 	},
 
 	render() {
+    var action = this._handlePress.bind(this, this.props.label);
     return (
-			<TouchableHighlight style={[icons.button, this.props.active && icons.buttonActive]} underlayColor='#444' onPress={this._handlePress.bind(this, this.props.label)}>
+			<TouchableHighlight style={[icons.button, this.props.enabled && icons.buttonEnabled, this.props.active && icons.buttonActive]} disabled={!this.props.enabled} underlayColor='#444' onPress={action}>
 				<Text style={[icons.buttonText, this.props.active && icons.buttonTextActive]}>{this.props.label}</Text>
 			</TouchableHighlight>
     );

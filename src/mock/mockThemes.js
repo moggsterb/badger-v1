@@ -41,20 +41,6 @@ const MOCK_THEMES = {
         ['#7eb5d6','#2a75a9','#274257','#dfc184','#644436'],
         [Adjust('#7eb5d6',0.3),Adjust('#2a75a9',0.3),Adjust('#274257',0.3),Adjust('#dfc184',0.3),Adjust('#644436',0.3)]
       ]
-    },
-    {
-      colors: [
-        [Adjust('#397249',-0.3),Adjust('#628b61',-0.3),Adjust('#9cb770',-0.3),Adjust('#c7e1ba',-0.3),Adjust('#f6e4cc',-0.3)],
-        ['#397249','#628b61','#9cb770','#c7e1ba','#f6e4cc'],
-        [Adjust('#397249',0.3),Adjust('#628b61',0.3),Adjust('#9cb770',0.3),Adjust('#c7e1ba',0.3),Adjust('#f6e4cc',0.3)]
-      ]
-    },
-    {
-      colors: [
-        [Adjust('#4f2412',-0.3),Adjust('#c9a798',-0.3),Adjust('#e9e0db',-0.3),Adjust('#f9f6f4',-0.3),Adjust('#cccccc',-0.3)],
-        ['#4f2412','#c9a798','#e9e0db','#f9f6f4','#cccccc'],
-        [Adjust('#4f2412',0.3),Adjust('#c9a798',0.3),Adjust('#e9e0db',0.3),Adjust('#f9f6f4',0.3),Adjust('#cccccc',0.3)]
-      ]
     }
   ]
 }

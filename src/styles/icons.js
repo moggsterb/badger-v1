@@ -5,7 +5,7 @@ var icons = StyleSheet.create({
 	  height: 36,
 	  flex: 1,
 	  flexDirection: 'row',
-	  backgroundColor: '#555555',
+	  backgroundColor: '#999',
 	  borderColor: '#888888',
 	  borderWidth: 1,
 	  borderRadius: 8,
@@ -15,6 +15,9 @@ var icons = StyleSheet.create({
 	},
   buttonActive: {
     backgroundColor: '#222',
+  },
+  buttonEnabled: {
+    backgroundColor: '#555'
   },
 	buttonText: {
 		fontSize: 10,

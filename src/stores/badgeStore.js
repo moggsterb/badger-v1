@@ -30,11 +30,6 @@ module.exports = Reflux.createStore({
     this._currentBadge.icon = icon[5];
     this.trigger(null);
   },
-  onBadgeTheme: function(theme) {
-    console.log("Theme Pressed !!!");
-    this._currentBadge.theme = theme[6];
-    this.trigger(null);
-  },
   onBadgeShuffleTheme: function() {
     console.log("Shuffle Pressed !!!");
     this._currentBadge.shuffle++;
@@ -44,4 +39,10 @@ module.exports = Reflux.createStore({
     console.log(this._currentBadge.shuffle);
     this.trigger(null);
   },
+  onBadgeTheme: function(theme) {
+    console.log("Theme Pressed !!!");
+    this._currentBadge.theme = theme[6];
+    this.trigger(null);
+  },
+
 });

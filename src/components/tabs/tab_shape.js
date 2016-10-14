@@ -41,19 +41,18 @@ var TabShape = React.createClass({
   render() {
     return (
 			<View style={frame.tabContainer}>
-
 	      <View style={frame.dash}>
 					<View style={frame.dashRow}>
-						<DashIcon label="Shape 0" onPress={this._handlePress} active={this.state.currentBadge.shape == 0} />
-						<DashIcon label="Shape 1" onPress={this._handlePress} active={this.state.currentBadge.shape == 1} />
-            <DashIcon label="Shape 2" onPress={this._handlePress} active={this.state.currentBadge.shape == 2} />
-						<DashIcon label="Shape 3" onPress={this._handlePress} active={this.state.currentBadge.shape == 3} />
+						<DashIcon label="Shape 0" onPress={this._handlePress} active={this.state.currentBadge.shape == 0} enabled={this.state.currentBadge.shapeEnabled(0)} />
+						<DashIcon label="Shape 1" onPress={this._handlePress} active={this.state.currentBadge.shape == 1} enabled={this.state.currentBadge.shapeEnabled(1)} />
+            <DashIcon label="Shape 2" onPress={this._handlePress} active={this.state.currentBadge.shape == 2} enabled={this.state.currentBadge.shapeEnabled(2)} />
+						<DashIcon label="Shape 3" onPress={this._handlePress} active={this.state.currentBadge.shape == 3} enabled={this.state.currentBadge.shapeEnabled(3)} />
 					</View>
 					<View style={frame.dashRow}>
-						<DashIcon label="Shape 4" onPress={this._handlePress} active={this.state.currentBadge.shape == 4} />
-						<DashIcon label="Shape 5" onPress={this._handlePress} active={this.state.currentBadge.shape == 5} />
-						<DashIcon label="Shape 6" onPress={this._handlePress} active={this.state.currentBadge.shape == 6} />
-						<DashIcon label="Shape 7" onPress={this._handlePress} active={this.state.currentBadge.shape == 7} />
+						<DashIcon label="Shape 4" onPress={this._handlePress} active={this.state.currentBadge.shape == 4} enabled={this.state.currentBadge.shapeEnabled(4)} />
+						<DashIcon label="Shape 5" onPress={this._handlePress} active={this.state.currentBadge.shape == 5} enabled={this.state.currentBadge.shapeEnabled(5)} />
+						<DashIcon label="Shape 6" onPress={this._handlePress} active={this.state.currentBadge.shape == 6} enabled={this.state.currentBadge.shapeEnabled(6)} />
+						<DashIcon label="Shape 7" onPress={this._handlePress} active={this.state.currentBadge.shape == 7} enabled={this.state.currentBadge.shapeEnabled(7)} />
 					</View>
 	      </View>
 			</View>
