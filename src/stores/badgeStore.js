@@ -44,29 +44,4 @@ module.exports = Reflux.createStore({
     console.log(this._currentBadge.shuffle);
     this.trigger(null);
   },
-
-
-
-  onBadgeCreate: function(text) {
-    console.log("Creating a badge!");
-    var id = (+new Date() + Math.floor(Math.random() * 9999999)).toString(36);
-    this.badges[id] = {
-      id: id,
-      text: text,
-    };
-    this.trigger(null);
-  },
-  onBadgeDelete: function(id) {
-    console.log("HELLLO!!!!!!");
-    console.log(id);
-    delete this.badges[id];
-    this.trigger(null);
-  },
-  onBadgeUpdate: function(id, updates) {
-    this.badges[id] = _.extend({}, this.badges[id], updates);
-    this.trigger(null);
-  },
-  getAll: function() {
-    return _.values(this.badges);
-  }
 });
