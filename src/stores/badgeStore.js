@@ -18,6 +18,7 @@ module.exports = Reflux.createStore({
     console.log("You want me to set the shape");
     console.log(shape);
     this._currentBadge.shape = shape[6];
+    this._currentBadge.style = 0;
     this.trigger(null);
   },
   onBadgeStyle: function(style) {

@@ -50,15 +50,18 @@ class Badge {
     var data = new Array(structure.length);
     var common = this.shapeData().common;
     var variant = this.shapeData().variants[this.style];
-    var th_t = this.themeData()[0].slice(0);
+    var th_s = this.themeData()[0].slice(0);
     var th_c = this.themeData()[1].slice(0);
-    var th_s = this.themeData()[2].slice(0);
+    var th_t = this.themeData()[2].slice(0);
+    console.log("Shuffle:" + this.shuffle);
+    console.log(th_t);;
     for (i = 0; i < this.shuffle; i++)
     {
       th_t.push(th_t.shift());
       th_c.push(th_c.shift());
       th_s.push(th_s.shift());
     };
+    console.log(th_t);;
 
     var layers = ""
     for (i = 0; i < structure.length; i++) {
@@ -74,14 +77,17 @@ class Badge {
       }
       layers = layers.concat(layer)
     };
-    // legacy colours (for the original placeholder colours)
-    layers = layers.replace(/#000000/g,th_c[0]).replace(/#FFFFFF/g,th_c[1]).replace(/#FF0000/g,th_c[2]).replace(/#00FF00/g,th_c[3]).replace(/#0000FF/g,th_c[4]);
-    // tones
-    layers = layers.replace(/#83BDB9/g,th_t[0]).replace(/#CB948B/g,th_t[1]).replace(/#DACD9F/g,th_t[2]).replace(/#E9E9E9/g,th_t[3]).replace(/#4F798B/g,th_t[4]);
-    // colours
-    layers = layers.replace(/#51A49E/g,th_c[0]).replace(/#B7695C/g,th_c[1]).replace(/#CDBB79/g,th_c[2]).replace(/#E2E2E2/g,th_c[3]).replace(/#06425C/g,th_c[4]);
+
+    // ['#2A3846','#C04336','#C4C6C7','#D1C521','#286D9A'],
+    // ['#2C3E50','#E74C3C','#ECF0F1','#FCEE21','#2980B9'],
+    // ['#566573','#EC7063','#F0F3F4','#FDF14D','#5499C7'],
+
     // shades
-    layers = layers.replace(/#39726E/g,th_s[0]).replace(/#804940/g,th_s[1]).replace(/#8F8354/g,th_s[2]).replace(/#9E9E9E/g,th_s[3]).replace(/#042E40/g,th_s[4]);
+    layers = layers.replace(/#2A3846/g,th_s[0]).replace(/#C04336/g,th_s[1]).replace(/#C4C6C7/g,th_s[2]).replace(/#D1C521/g,th_s[3]).replace(/#286D9A/g,th_s[4]);
+    // colours
+    layers = layers.replace(/#2C3E50/g,th_c[0]).replace(/#E74C3C/g,th_c[1]).replace(/#ECF0F1/g,th_c[2]).replace(/#FCEE21/g,th_c[3]).replace(/#2980B9/g,th_c[4]);
+    // tones
+    layers = layers.replace(/#566573/g,th_t[0]).replace(/#EC7063/g,th_t[1]).replace(/#F0F3F4/g,th_t[2]).replace(/#FDF14D/g,th_t[3]).replace(/#5499C7/g,th_t[4]);
     return layers;
   }
 }

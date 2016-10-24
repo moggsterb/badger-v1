@@ -1,5 +1,17 @@
+
+// shades  2A3846  C04336  C4C6C7  D1C521  286D9A
+// colours 2C3E50  E74C3C  ECF0F1  FCEE21  2980B9
+// tones   566573  EC7063  F0F3F4  FDF14D  5499C7
+
 const MOCK_THEMES = {
   default: [
+    {
+      colors: [
+        ['#2A3847','#C04337','#C4C6C8','#D1C521','#286D9B'],
+        ['#2C3E51','#E74C3D','#ECF0F2','#FCEE21','#2980B8'],
+        ['#566574','#EC7064','#F0F3F5','#FDF14E','#5499C8'],
+      ]
+    },
     {
       colors: [
         [Adjust('#51a39d',-0.3),Adjust('#b7695c',-0.3),Adjust('#cdbb79',-0.3),Adjust('#f2f2f2',-0.3),Adjust('#06425c',-0.3)],
